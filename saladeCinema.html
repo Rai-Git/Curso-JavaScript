@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .livre{
+            background-color: green;
+        }
+        .ocupado{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <label for="qtde">Informe quantas cadeiras você quer.</label>
+    <input type="number" id="qtde">
+    <button onclick="criarSala()">Criar sala</button>
+    <hr>
+    <div id="sala">
+        <!--Inserir cadeiras-->
+    </div>
+
+    <script>
+        function criarSala(){
+            let qtde = document.getElementById('qtde')
+            if(qtde.value <= 0){
+                alert('Precisa informar a quantidade')
+                qtde.focus()
+                return
+            }
+            //
+            let root = document.getElementById('sala')
+            for(let i = 1; i <= qtde.value; i++){
+                let cadeira = document.createElement("button")
+                let nodeText = document.createTextNode(`c ${i}` )
+                cadeira.appendChild(nodeText)
+                cadeira.setAttribute('class','livre')
+                cadeira.setAttribute('onclick','reservar(this)')
+                root.appendChild(cadeira)
+            }}
+
+            function reservar(item){
+                item.getAttribute('class') == 'livre' ? item.setAttribute('class','ocupado') : item.setAttribute('class','livre')
+            }
+
+        
+    </script>
+</body>
+</html>

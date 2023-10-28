@@ -1,0 +1,24 @@
+<button onclick="criarParagrafo()">Criar paragrafo</button>
+<div>
+    <!--Inserir paragrafo via DOM-->
+</div>
+
+<button onclick="criar()">Criar paragrafo com metodo DOM</button>
+<div>
+    <!--Inserir paragrafo via DOM-->
+</div>
+
+<script>
+
+    function criarParagrafo(){
+        document.getElementsByTagName('div')[0].innerHTML='<p>Hello word!</p>'
+    }
+
+    function criar(){
+        let p1 = document.createElement('p')
+        let nodeText = document.createTextNode("Hello world again")
+        p1.appendChild(nodeText)
+       document.getElementsByTagName('div')[1].appendChild(p1)
+    }
+
+</script>
